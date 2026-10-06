@@ -22,7 +22,7 @@ curl -X PUT "http://qdrant:6333/collections/exact_cache" \
   -H "Content-Type: application/json" \
   -d '{
     "vectors": {
-      "size": 384,
+      "size": 1,
       "distance": "Cosine"
     }
   }'
