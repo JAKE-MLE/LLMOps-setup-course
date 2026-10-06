@@ -100,7 +100,8 @@ services:
       context: .
       dockerfile: ./litellm/Dockerfile
     ports:
-      - "${LITELLM_PORT:-8001}:4000"  # LiteLLM on port 4000
+      # - "${LITELLM_PORT:-8001}:4000"  # LiteLLM on port 4000
+      - "127.0.0.1:${LITELLM_PORT:-8001}:4000"
     environment:
       # API Keys for the different models
       - OPENAI_API_KEY=${OPENAI_API_KEY}
@@ -147,7 +148,7 @@ services:
       mlflow server 
       --host 0.0.0.0 
       --port 5000 
-      --allowed-hosts mlflow:5000,mlflow,localhost,127.0.0.1
+      --allowed-hosts mlflow:5000,mlflow,localhost:*,127.0.0.1
       --backend-store-uri sqlite:///mlflow-data/mlflow.db 
       --default-artifact-root file:///mlflow-data/mlartifacts 
       --serve-artifacts

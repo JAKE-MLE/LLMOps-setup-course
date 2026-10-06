@@ -85,7 +85,7 @@ class SecurityConfig:
     MAX_TEMPERATURE = 1.0
     MIN_MAX_TOKENS = 1
     MAX_MAX_TOKENS = 2000
-    ALLOWED_MODEL_PATTERN = r"^(groq|gpt|gemini|openrouter)-[a-z0-9-]+$"
+    ALLOWED_MODEL_PATTERN = r"^(groq|gpt|gemini|openrouter|lmstudio)-[a-z0-9-]+$"
     RATE_LIMIT_REQUESTS_PER_MINUTE = 60
     SUSPICIOUS_PATTERNS = [
         # Basic instruction overrides
