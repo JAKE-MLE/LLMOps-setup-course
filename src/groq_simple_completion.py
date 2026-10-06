@@ -21,14 +21,23 @@ def generate_with_groq(prompt, model="qwen/qwen3.6-27b"):
         "Content-Type": "application/json",
     }
 
-    payload = {
-        "model": model,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.7,
-        "max_tokens": 500,
-    }
+    # payload = {
+    #     "model": model,
+    #     "messages": [{"role": "user", "content": prompt}],
+    #     "temperature": 0.7,
+    #     "max_tokens": 500,
+    # }
 
-    url = "https://api.groq.com/openai/v1/chat/completions"
+    payload = {
+            "model": os.getenv("LMSTUDIO_MODEL"),
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.7,
+            "max_tokens": 500,
+        }
+
+    # url = "https://api.groq.com/openai/v1/chat/completions"
+    url = "http://localhost:1234/v1/chat/completions"
+
 
     response = requests.post(url, headers=headers, json=payload)
 

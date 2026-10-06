@@ -33,6 +33,12 @@ model_list:
       model: openrouter/mistralai/mistral-7b-instruct:free
       api_key: os.environ/OPENROUTER_API_KEY
 
+  - model_name: lmstudio-local
+    litellm_params:
+      model: openai/gemma-3-4b-instruct
+      api_base: http://host.docker.internal:1234/v1
+      api_key: lm-studio
+
 # Global Security Settings
 litellm_settings:
   callbacks: ["mlflow", "detect_prompt_injection"] # , "hide_secrets" - Licensed feature

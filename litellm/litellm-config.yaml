@@ -30,6 +30,12 @@ model_list:
       model: openrouter/mistralai/mistral-7b-instruct:free
       api_key: os.environ/OPENROUTER_API_KEY
 
+  - model_name: lmstudio-local
+    litellm_params:
+      model: openai/google/gemma-3-4b        # "openai/" + l'id LM Studio
+      api_base: http://host.docker.internal:1234/v1
+      api_key: lm-studio
+
 # Configure fallbacks at the router level
 router_settings:
   fallbacks:
